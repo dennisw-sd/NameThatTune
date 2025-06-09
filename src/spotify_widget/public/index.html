@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name That Tune!</title>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login-screen" class="login-form">
+            <h1>Name that Tune!</h1>
+            <div class="instructions">
+                <strong>OBS Setup Process:</strong><br>
+                1. Authenticate here in your regular browser<br>
+                2. After login, you'll get a special OBS URL<br>
+                3. Copy that URL and use it as a Browser Source in OBS<br>
+                4. No separate authentication needed in OBS!<br><br>
+                Enter your Spotify Client ID to get started:
+            </div>
+            <input type="text" id="clientId" placeholder="Enter your Spotify Client ID" />
+            <button onclick="startAuth()">Connect to Spotify</button>
+            <div id="login-status"></div>
+        </div>
+
+        <div id="now-playing-screen" class="now-playing">
+            <div id="track-display">
+                <div class="loading"></div>
+                <p>Loading your current track...</p>
+            </div>
+        </div>
+    </div>
+<script src="auth.js"></script>
+</body>
+</html>

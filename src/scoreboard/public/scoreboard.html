@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scoreboard Display</title>
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: transparent;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .scoreboard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 800px;
+            height: 150px;
+            background: #2c3e5067;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            /* border: 3px solid rgba(255, 255, 255, 0.2); */
+        }
+        
+        .team {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .team-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .team-score {
+            font-size: 72px;
+            font-weight: 400;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1;
+            margin: 10px 0;
+        }
+        
+        .vs-divider {
+            font-size: 36px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 0 30px;
+        }
+        
+        /* Animation for score changes */
+        .score-change {
+            animation: scoreUpdate 0.5s ease-in-out;
+        }
+        
+        @keyframes scoreUpdate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Connection status indicator */
+        .status-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #dc3545;
+        }
+        
+        .status-indicator.connected {
+            background: #28a745;
+        }
+        
+        /* Responsive design for different sizes */
+        @media (max-width: 600px) {
+            .scoreboard {
+                width: 500px;
+                height: 120px;
+                padding: 15px;
+            }
+            
+            .team-name {
+                font-size: 20px;
+            }
+            
+            .team-score {
+                font-size: 48px;
+            }
+            
+            .vs-divider {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator" id="statusIndicator"></div>
+    
+    <div class="scoreboard">
+        <div class="team">
+            <div class="team-name" id="team1Name">TEAM 1</div>
+            <div class="team-score" id="team1Score">0</div>
+        </div>
+        
+        <div class="vs-divider">VS</div>
+        
+        <div class="team">
+            <div class="team-name" id="team2Name">TEAM 2</div>
+            <div class="team-score" id="team2Score">0</div>
+        </div>
+    </div>
+	 <script src="./js/scoreboard.js"></script>
+</body>
+</html>
