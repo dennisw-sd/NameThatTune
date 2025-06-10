@@ -79,7 +79,7 @@ Recommended Dimensions for OBS:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
 
-<div><br /> <br /> </div>
+<br />
 
 <div align="center">
     <h1>⚙️ Spotify Widget</h1>
@@ -97,6 +97,7 @@ Displays album artwork, song title, and artist from the currently played song on
 
 * Created App with `Client ID`
 
+<br />
 ### Spotify Developer Account and the Client ID
 
 If you're no stranger to APIs, this should be a breeze, however, I'll go through the steps just in case:
@@ -119,6 +120,7 @@ If you're no stranger to APIs, this should be a breeze, however, I'll go through
 
 5. Finalize creating the app, and you should have a `Client ID`available to you at the top. Refer to this ID for the next section.
 
+<br />
 ### Widget Guide
 
 1. Access the Spotify Widget URL from `http://127.0.0.1:888` or directly from the terminal.
