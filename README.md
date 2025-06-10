@@ -18,7 +18,7 @@
 
 ### Prerequisites
 
-This guide will assume you have [Node.js]([Node.js — Run JavaScript Everywhere](https://nodejs.org/en)) installed, are familiar with the CLI, and can pull the repo where needed.
+This guide will assume you have [Node.js](https://nodejs.org/en) installed, are familiar with the CLI, and can pull the repo where needed.
 
 ### Installation
 
@@ -40,7 +40,7 @@ node server.js
 <div><br /> <br /> </div>
 
 <div align="center">
-<h1>⚙️ Scoreboard and Dashboard</h1>
+    <h1>⚙️ Scoreboard and Dashboard</h1>
 </div>
 
 The scoreboard has two parts:
@@ -79,7 +79,7 @@ Recommended Dimensions for OBS:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
 
-<br />
+<div><br /></div>
 
 <div align="center">
     <h1>⚙️ Spotify Widget</h1>
@@ -97,7 +97,8 @@ Displays album artwork, song title, and artist from the currently played song on
 
 * Created App with `Client ID`
 
-<br />
+<div><br /></div>
+
 ### Spotify Developer Account and the Client ID
 
 If you're no stranger to APIs, this should be a breeze, however, I'll go through the steps just in case:
@@ -118,9 +119,10 @@ If you're no stranger to APIs, this should be a breeze, however, I'll go through
    
    4. **APIs used:** Web API (select only this option)
 
-5. Finalize creating the app, and you should have a `Client ID`available to you at the top. Refer to this ID for the next section.
+5. Finalize creating the app, and you should have a `Client ID`available to you at the top. Refer to this ID for the next section. \
 
-<br />
+<div><br /></div>
+
 ### Widget Guide
 
 1. Access the Spotify Widget URL from `http://127.0.0.1:888` or directly from the terminal.
@@ -139,6 +141,8 @@ If you're no stranger to APIs, this should be a breeze, however, I'll go through
 Recommended Dimensions for OBS:
 
 > 800 x 400
+
+<div><br /></div>
 
 **Notes:**
 
