@@ -1,111 +1,156 @@
-# Name That Tune
-Web components to use in Open Broadcast Software (OBS) for the `Name That Tune` game utilized at Sound Devices functions.
+<div align="center">
+    <a id="readme-top"></a>
+    <h1>Name That Tune</h1>
+    <p>Small web app to enhance the game with OBS</p>
+</div>
 
-## Components
-### Technical Information
+### 
 
-**Backend**:
-	`Node.js` (v22.14.0 or later) with `Express` web server and `WebSocket`
+### Built With...
 
-**Frontend**:
-	Vanilla HTML, CSS, and JavaScript (no frameworks)
+* Node (v22.14.0), Express, and WebSocket
+* Vanilla JavaScript, HTML, and CSS (no frameworks)
 
+<div align="center">
+    <h2>Getting Started</h2>
+</div>
 
-# Scoreboard and Dashboard
-A real-time scoreboard system designed to display scores to an OBS `browser` source instance.
-Control scores from any web browser whilst displaying a clean scoreboard overlay in OBS Studio or other streaming software.
+<div align="center>
 
-Dashboard
-- Update team names in real-time
-- Adjust scores with [+1, -1, +3] buttons.
-- Reset all scores to zero
-- Check WebSocket connection at a glance
+</div>
 
-Scoreboard Display
-- Team names and current score
-- Smooth animations when scores change
-- Automatic reconnection if connection were to drop
+<div align="center">
+<h2
+</div>
 
-Both the scoreboard and dashboard sync through a WebSocket.
+### Prerequisites
 
-### Quick Start
+This guide will assume you have [Node.js]([Node.js — Run JavaScript Everywhere](https://nodejs.org/en)) installed, are familiar with the CLI, and can pull the repo where needed.
 
-1. Install Dependencies via the terminal:
-``` bash
-npm install ws express
+### Installation
+
+1. Navigate into the `src` directory and install dependencies from `package.json`
+
+```shell
+# Will install Express and WebSocket
+npm install 
 ```
 
-2. Start the Server
-``` bash
+2. Inside the `src` folder, run the following `node` command:
+
+```shell
 node server.js
 ```
 
-Once you start the scoreboard server, the terminal should provide the labeled addresses for you to connect to.
-Server will run specifically on `PORT 888` unless changed in `server.js`
+3. Go to `http://127.0.0.1:888` to access the home page, or you can follow the terminal output.
 
-``` bash
-"Server running on http://127.0.0.1:888"
-"Dashboard: http://127.0.0.1:888/dashboard.html"
-"Scoreboard for OBS: http://127.0.0.1:888/scoreboard.html"
+<div align="center">
+<h2>Scoreboard and Dashboard</h2>
+</div>
+
+The scoreboard has two parts:
+
+* Dashboard to control the Scoreboard
+
+* Scoreboard view for OBS
+
+This component utilizes the WebSocket dependency with status indicators noting the connection. The scoreboard indicator is a dot in the top-right hand corner of the view, whereas the dashboard has a painfully obvious status indicator at the top.
+
+> Additionally, the terminal will also not connections and disconnects.
+
+Dashboard Controls:
+
+* Enter in individual team names with an update button.
+
+* Shows the current score per team.
+
+* -1, +1, and +3 buttons for score control.
+
+* Reset Scores button to wipe all scores.
+
+### Usage
+
+Create an OBS Studio `Browser` instance in your scene, and enter the following URL into the URL Field:
+
+```url
+http://127.0.0.1:888/scoreboard.html
 ```
 
-3. Open or Navigate to the Dashboard page: 
-   `http://127.0.0.1:888/dashboard.html`
+Recommended Dimensions for OBS:
+
+> 880 x 250
+
+<div>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+</div>
+
+<div align="center">
+    <h2>Spotify Widget</h2>
+</div>
+
+A widget made specifically to display on an OBS Studio instance.
+
+Displays album artwork, song title, and artist from the currently played song on your connected Spotify account.
+
+### Requirements
+
+* Spotify Account (either free or premium)
+
+* Access to Spotify Developer account (https://developer.spotify.com/)
+
+* Created App with `Client ID`
+
+### Spotify Developer Account and the Client ID
+
+If you're no stranger to APIs, this should be a breeze, however, I'll go through the steps just in case:
+
+1. Go to [https://developer.spotify.com/](https://developer.spotify.com/)
+
+2. Either create or log in to the account you want to utilize.
+
+3. Enter the Dashboard
+
+4. Select `Create App`
    
-4. Create a Browser source pointing to the Scoreboard:
-   `http://127.0.0.1:888/scoreboard.html`
+   1. **App Name:** Name That Tune (or anything you want)
    
-	*Recommended dimensions: 840 x 190 pixels*
+   2. **App Description:** Name That Tune (or anything you want)
+   
+   3. **Redirect URIs:** `http://127.0.0.1:888/` (Required to redirect you back to the Spotify Widget)
+   
+   4. **APIs used:** Web API (select only this option)
 
+5. Finalize creating the app, and you should have a `Client ID`available to you at the top. Refer to this ID for the next section.
 
+### Widget Guide
 
----
+1. Access the Spotify Widget URL from `http://127.0.0.1:888` or directly from the terminal.
 
-# Spotify Widget
-A transparent, OBS-ready web app that display the currently playing Spotify track with album art, song name, and artist information.
+2. You'll be greeted to enter in your Spotify Client ID. Paste that bad boy into the field and click `Connect to Spotify`
 
-### Quick Start
+3. This will redirect you to Spotify itself to ask permission for this app to use your Spotify account.
 
-##### Prerequisites:
-Spotify Developer Account
-1. Go to https://developer.spotify.com/dashboard
-2. Create a new app
-3. Note or copy your `Client ID`
-4. Add the redirect URI to `http://127.0.0.1:3030/`
+4. Click on `Agree`
+   If you do not agree, we don't get the song information, capiche?
 
-### Instructions
+5. Once you agree, you'll be rerouted back to the Spotify page
 
-### Step 1: Start the web server in a different terminal
-``` bash
-node server.js
-```
+6. An OBS Studio `URL` will be generated for you on the webpage to place into a `Browser` Source within OBS Studio.
 
-### Step 2: Connect to the URL noted in the terminal
-``` bash
-"Spotify Widget running on http://127.0.0.1:3030"
-```
+Recommended Dimensions for OBS:
 
-### Step 3: Use Spotify Client ID and authenticate it
+> 800 x 400
 
-Copy the client ID you made in the Spotify Developer dashboard.
+**Notes:**
 
-![[auth_clientID 1.png]](img/auth_clientID.png)
+* Tokens for the Spotify API only last an hour, but should refresh.
 
-#### Step 4: Authenticate with Spotify
+* Everything is stored in a session, so once you close the browser, you gotta redo everything again.
 
-If you do not agree, the widget will not work.
+* The Spotify widget page will show you what you're account is currently playing. If you have not played anything yet, it will have a continuous loader active.
 
-![[auth_on_spotify.png]](img/auth_on_spotify.png)
+* The API is pulled every 2 seconds.
 
-### Step 5: Copy OBS link
-
-Once you authenticate with Spotify, you will be redirected to the Spotify Widget page with an OBS link.
-
-![[OBS_link.png]](img/OBS_link.png)
-
-### Step 6: Make a new `Browser Source` in OBS
-
-### Step 7: Paste the OBS link in the `Browser Source`
-
-### Step 8: Dimensions
-Recommended dimensions of the browser source `800 x 400`
+<div>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+</div>
