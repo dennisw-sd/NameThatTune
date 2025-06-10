@@ -116,7 +116,7 @@ If you're no stranger to APIs, this should be a breeze, however, I'll go through
    
    2. **App Description:** Name That Tune (or anything you want)
    
-   3. **Redirect URIs:** `http://127.0.0.1:888/` (Required to redirect you back to the Spotify Widget)
+   3. **Redirect URIs:** `http://127.0.0.1:888/spotify.html` (Required to redirect you back to the Spotify Widget)
    
    4. **APIs used:** Web API (select only this option)
 
