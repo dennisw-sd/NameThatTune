@@ -15,13 +15,6 @@
     <h2>Getting Started</h2>
 </div>
 
-<div align="center>
-
-</div>
-
-<div align="center">
-<h2
-</div>
 
 ### Prerequisites
 
@@ -44,8 +37,10 @@ node server.js
 
 3. Go to `http://127.0.0.1:888` to access the home page, or you can follow the terminal output.
 
+<div><br /> <br /> </div>
+
 <div align="center">
-<h2>Scoreboard and Dashboard</h2>
+<h1>⚙️ Scoreboard and Dashboard</h1>
 </div>
 
 The scoreboard has two parts:
@@ -84,8 +79,10 @@ Recommended Dimensions for OBS:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 </div>
 
+<div><br /> <br /> </div>
+
 <div align="center">
-    <h2>Spotify Widget</h2>
+    <h1>⚙️ Spotify Widget</h1>
 </div>
 
 A widget made specifically to display on an OBS Studio instance.
