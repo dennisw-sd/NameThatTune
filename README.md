@@ -32,7 +32,7 @@ npm install
 2. Inside the `src` folder, run the following `node` command:
 
 ```shell
-node server.js
+npm run game
 ```
 
 3. Go to `http://127.0.0.1:888` to access the home page, or you can follow the terminal output.
