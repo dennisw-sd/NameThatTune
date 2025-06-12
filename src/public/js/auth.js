@@ -206,6 +206,7 @@ async function getCurrentTrack() {
                     name: data.item.name,
                     artist: data.item.artists.map((a) => a.name).join(", "),
                     albumArt: data.item.album.images[0]?.url || "",
+                    releaseDate: data.item.album.release_date,
                 };
                 displayCurrentTrack();
             }
@@ -224,6 +225,7 @@ function displayCurrentTrack() {
 			<div class="track-info">
 				<h2>${currentTrackData.name}</h2>
 				<p>${currentTrackData.artist}</p>
+                <p>Released: ${currentTrackData.releaseDate.slice(0, 4)}</p>
 			</div>
 	`;
 }
