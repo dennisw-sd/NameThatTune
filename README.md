@@ -25,7 +25,6 @@ This guide will assume you have [Node.js](https://nodejs.org/en) installed, are 
 1. Navigate into the `src` directory and install dependencies from `package.json`
 
 ```shell
-# Will install Express and WebSocket
 npm install 
 ```
 
