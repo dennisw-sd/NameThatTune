@@ -1,8 +1,20 @@
 let ws;
 let previousScores = { team1: 0, team2: 0 };
 
+function getWebSocketURL() {
+    const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+    const hostName = window.location.hostname;
+
+    const port = 888;
+
+    return `${protocol}//${hostName}:${port}`;
+}
+
 function connect() {
-    ws = new WebSocket("ws://localhost:888");
+    const socketURL = getWebSocketURL();
+    console.log(`Attempting to connect to: ${socketURL}`);
+
+    ws = new WebSocket(socketURL);
 
     ws.onopen = function () {
         console.log("Connected to WebSocket server");

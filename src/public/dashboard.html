@@ -1,199 +1,249 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Scoreboard Dashboard</title>
-	 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #f0f0f0;
-        }
+    <head>
+        <title>Scoreboard Dashboard</title>
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 5px auto;
+                padding: 20px;
+                background: #f0f0f0;
+            }
 
-		  .center {
-			text-align: center;
-			vertical-align: middle;
-		  }
+            .center {
+                text-align: center;
+                vertical-align: middle;
+            }
 
-		  .i-size {
-			font-size: 1.5em;
-		  }
+            .i-size {
+                font-size: 1.5em;
+            }
 
-		  .i-size2 {
-			font-size: 2em;
-		  }
+            .i-size2 {
+                font-size: 2em;
+            }
 
-		  .i-size3 {
-			font-size: 3em;
-		  }
+            .i-size3 {
+                font-size: 3em;
+            }
 
-		  .i-size6 {
-			font-size: 6em;
-		  }
-        
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .team-section {
-            margin: 20px 0;
-            padding: 20px;
-            background: #f1f1f1;
-            border-radius: 8px;
-        }
-        
-        .team-name {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .team-name input {
-            padding: 8px 12px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-right: 10px;
-            flex: 1;
-        }
-        
-        .score-display {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin: 15px 0;
-            color: #333;
-        }
-        
-        .score-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        button {
-				display: inline-flex;
-    			align-items: center;
-				justify-content: center;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-				text-align: center;
-        }
-        
-        .score-btn {
-            background: #007bff;
-            color: white;
-        }
-        
-        .score-btn:hover {
-            background: #0056b3;
-        }
-        
-        .reset-btn {
-            background: #dd4f5d;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            margin-left: auto;
-            margin-right: auto;
-				
-        }
-        
-        .reset-btn:hover {
-            background: #c82333;
-        }
-        
-        .status {
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-        
-        .status.connected {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .status.disconnected {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+            .i-size6 {
+                font-size: 6em;
+            }
 
-		  .yellow {
-			color: rgb(224, 181, 70);
-		  }
+            .container {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
 
-		  .i-padding {
-			padding-left: 5px;
-			padding-right: 5px;
-		  }
+            h1 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 30px;
+            }
 
-		  .center-item {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		  }
-    </style>
-</head>
-<body>
-    <div class="container">
-		<div class="center"><i class='bx bxs-trophy i-size6 yellow'></i></div>
-        <h1>Scoreboard</h1>
-        
-        <div id="status" class="status disconnected">
-            Connecting to server...
+            .team-section {
+                margin: 20px 0;
+                padding: 20px;
+                background: #f1f1f1;
+                border-radius: 8px;
+            }
+
+            .team-name {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .team-name input {
+                padding: 8px 12px;
+                font-size: 16px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-right: 10px;
+                flex: 1;
+            }
+
+            .score-display {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                margin: 15px 0;
+                color: #333;
+            }
+
+            .score-controls {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+                text-align: center;
+            }
+
+            .score-btn {
+                background: #007bff;
+                color: white;
+                padding: 20px 30px;
+            }
+
+            .score-update {
+                background: #007bff;
+                color: white;
+                padding: auto 50px;
+            }
+
+            .score-btn:hover {
+                background: #0056b3;
+            }
+
+            .score-update:hover {
+                background: #0056b3;
+            }
+
+            .reset-btn {
+                background: #dd4f5d;
+                color: white;
+                padding: 15px 30px;
+                font-size: 18px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .reset-btn:hover {
+                background: #c82333;
+            }
+
+            .status {
+                text-align: center;
+                padding: 10px;
+                margin-top: 20px;
+                border-radius: 5px;
+            }
+
+            .status.connected {
+                background: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+            }
+
+            .status.disconnected {
+                background: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+            }
+
+            .yellow {
+                color: rgb(224, 181, 70);
+            }
+
+            .i-padding {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .center-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">
+                <i class="bx bxs-trophy i-size6 yellow"></i>
+            </div>
+            <h1>Scoreboard</h1>
+
+            <div id="status" class="status disconnected">
+                Connecting to server...
+            </div>
+
+            <div class="team-section">
+                <div class="team-name">
+                    <input
+                        type="text"
+                        id="team1Name"
+                        placeholder="Team 1 Name"
+                        value="Team 1" />
+                    <button
+                        onclick="updateTeamName('team1')"
+                        class="score-update">
+                        Update
+                    </button>
+                </div>
+                <div class="score-display">
+                    Score: <span id="team1Score">0</span>
+                </div>
+                <div class="score-controls">
+                    <button
+                        onclick="changeScore('team1', -1)"
+                        class="score-btn">
+                        -1
+                    </button>
+                    <button onclick="changeScore('team1', 1)" class="score-btn">
+                        +1
+                    </button>
+                    <button onclick="changeScore('team1', 3)" class="score-btn">
+                        +3
+                    </button>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <div class="team-name">
+                    <input
+                        type="text"
+                        id="team2Name"
+                        placeholder="Team 2 Name"
+                        value="Team 2" />
+                    <button
+                        onclick="updateTeamName('team2')"
+                        class="score-update">
+                        Update
+                    </button>
+                </div>
+                <div class="score-display">
+                    Score: <span id="team2Score">0</span>
+                </div>
+                <div class="score-controls">
+                    <button
+                        onclick="changeScore('team2', -1)"
+                        class="score-btn">
+                        -1
+                    </button>
+                    <button onclick="changeScore('team2', 1)" class="score-btn">
+                        +1
+                    </button>
+                    <button onclick="changeScore('team2', 3)" class="score-btn">
+                        +3
+                    </button>
+                </div>
+            </div>
+
+            <div class="center-item">
+                <button onclick="resetScores()" class="reset-btn center">
+                    <i class="bx bx-reset i-size i-padding"></i> Reset Scores
+                </button>
+            </div>
         </div>
-        
-        <div class="team-section">
-            <div class="team-name">
-                <input type="text" id="team1Name" placeholder="Team 1 Name" value="Team 1">
-                <button onclick="updateTeamName('team1')" class="score-btn">Update</button>
-            </div>
-            <div class="score-display">Score: <span id="team1Score">0</span></div>
-            <div class="score-controls">
-                <button onclick="changeScore('team1', -1)" class="score-btn">-1</button>
-                <button onclick="changeScore('team1', 1)" class="score-btn">+1</button>
-                <button onclick="changeScore('team1', 3)" class="score-btn">+3</button>
-            </div>
-        </div>
-        
-        <div class="team-section">
-            <div class="team-name">
-                <input type="text" id="team2Name" placeholder="Team 2 Name" value="Team 2">
-                <button onclick="updateTeamName('team2')" class="score-btn">Update</button>
-            </div>
-            <div class="score-display">Score: <span id="team2Score">0</span></div>
-            <div class="score-controls">
-                <button onclick="changeScore('team2', -1)" class="score-btn">-1</button>
-                <button onclick="changeScore('team2', 1)" class="score-btn">+1</button>
-                <button onclick="changeScore('team2', 3)" class="score-btn">+3</button>
-            </div>
-        </div>
-        
-		  <div class="center-item">
-			<button onclick="resetScores()" class="reset-btn center">
-				<i class='bx bx-reset i-size i-padding' ></i> Reset Scores
-			</button>
-		  </div>
-    </div>
-	 <script src="./js/dashboard.js"></script>
-</body>
+        <script src="./js/dashboard.js"></script>
+    </body>
 </html>
