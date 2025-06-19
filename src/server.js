@@ -13,7 +13,7 @@ const wss = new WebSocket.Server({ server });
 const PORT = 888;
 const LOCAL_IP = getLocalIP();
 
-// ansi COLOR REFS
+// ANSI Color Ref
 const ansi = {
     bold: "\x1b[1m",
     italic: "\x1b[3m",
@@ -136,7 +136,7 @@ server.listen(PORT, "0.0.0.0", () => {
 
         ${ansi.italic}Notes:${ansi.reset}
         ${ansi.italic}- Used to control scoreboard from another source${ansi.reset}
-        ${ansi.italic}- OBS Browser source must use the URI below${ansi.reset}
+        ${ansi.italic}- OBS Browser source must use the URI below if controlling from another source${ansi.reset}
 
         For OBS Browser source:
         - http://${LOCAL_IP}:${PORT}/scores
